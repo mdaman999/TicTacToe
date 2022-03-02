@@ -97,7 +97,7 @@ body {
   }
   #wrapper {
     width: 90%;
-    height: 70%;
+    height: 65%;
     padding: 10px;
     flex-direction: column-reverse;
     justify-content: space-between;
