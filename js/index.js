@@ -26,6 +26,7 @@ function iswining(who) {
 
         tern.innerText = "Player " + who + " Won!";
         tern.style.animation = "size 1s linear infinite";
+        
         won = 1;
         if (who == "x") {
             xs++;
