@@ -1,0 +1,122 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Rubik", sans-serif;
+  cursor: pointer;
+}
+body {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+#heading {
+  text-decoration: underline;
+}
+@keyframes size {
+  50% {
+    transform: scale(1.31);
+  }
+}
+@keyframes boxsize {
+  50% {
+    transform: scale(1.06);
+  }
+}
+#tern {
+  font-family: "Courgette", cursive;
+}
+#wrapper {
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+  height: 60%;
+  border: 3px solid #000;
+  border-radius: 10px;
+  padding: 20px;
+}
+#info {
+  width: 45%;
+  height: 100%;
+  display: flex;
+  padding: 10px;
+  border: 2px solid #aaa;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  flex-direction: column;
+}
+#up,
+#down {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50%;
+  background-color: rgba(170, 170, 170, 0.274);
+}
+#down {
+  margin-top: 5px;
+}
+#grid {
+  width: 50%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 5px;
+}
+.box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+  background-color: rgba(170, 170, 170, 0.274);
+}
+#btn {
+  width: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+#new,
+#restart {
+  letter-spacing: 3px;
+  padding: 15px 20px;
+  border: none;
+  border-radius: 10px;
+  font-size: 20px;
+  font-weight: 600;
+  background-color: rgba(170, 170, 170, 0.274);
+}
+
+@media screen and (max-width: 600px) {
+  #heading {
+    font-size: 20px;
+  }
+  #wrapper {
+    width: 90%;
+    height: 70%;
+    padding: 10px;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+  }
+  #grid {
+    height: 50%;
+    width: 100%;
+  }
+  #info {
+    width: 100%;
+    height: 45%;
+    border-top-left-radius: 0;
+    border-bottom-right-radius: 10px;
+  }
+  #btn {
+    width: 80%;
+  }
+  #new,
+  #restart {
+    font-size: 15px;
+  }
+}

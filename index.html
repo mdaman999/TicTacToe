@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Courgette&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Tic Tac Toe</title>
+  </head>
+  <body>
+    <h1 id="heading">Welcome to Unusual game:Tic-Tac-toe</h1>
+    <h2 id="tern"></h2>
+    <div id="wrapper">
+      <div id="info">
+        <div id="up">
+          <h3 id="xp"></h3>
+        </div>
+        <div id="down">
+          <h3 id="op"></h3>
+        </div>
+      </div>
+      <div id="grid">
+        <div class="box" id="b0" onclick="puting(0)"></div>
+        <div class="box" id="b1" onclick="puting(1)"></div>
+        <div class="box" id="b2" onclick="puting(2)"></div>
+        <div class="box" id="b3" onclick="puting(3)"></div>
+        <div class="box" id="b4" onclick="puting(4)"></div>
+        <div class="box" id="b5" onclick="puting(5)"></div>
+        <div class="box" id="b6" onclick="puting(6)"></div>
+        <div class="box" id="b7" onclick="puting(7)"></div>
+        <div class="box" id="b8" onclick="puting(8)"></div>
+      </div>
+    </div>
+    <div id="btn">
+      <button id="new" onclick="location.reload()">New Game</button>
+      <button id="restart">Restart</button>
+    </div>
+
+    <script src="js/index.js"></script>
+  </body>
+</html>
