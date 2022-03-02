@@ -13,9 +13,6 @@ body {
   align-items: center;
   justify-content: space-around;
 }
-#heading {
-  text-decoration: underline;
-}
 @keyframes size {
   50% {
     transform: scale(1.31);
