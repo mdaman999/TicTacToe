@@ -6,7 +6,8 @@ var op = document.getElementById("op");
 var xp = document.getElementById("xp");
 var restart = document.getElementById("restart");
 var arr = [2, 3, 4, 5, 6, 7, 8, 9, 10];
-var xs = 0, os = 0,won = 0,flag = 1;
+var win = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]];
+var xs = 0, os = 0, won = 0, flag = 1;
 
 // initial loaded text
 tern.innerText = "Tern For X";
@@ -22,37 +23,41 @@ function isdrow() {
 
 //isWin
 function iswining(who) {
-    if (((arr[0] == arr[1]) && (arr[1] == arr[2])) || ((arr[3] == arr[4]) && (arr[4] == arr[5])) || ((arr[6] == arr[7]) && (arr[7] == arr[8])) || ((arr[0] == arr[3]) && (arr[3] == arr[6])) || ((arr[1] == arr[4]) && (arr[4] == arr[7])) || ((arr[2] == arr[5]) && (arr[5] == arr[8])) || ((arr[0] == arr[4]) && (arr[4] == arr[8])) || ((arr[2] == arr[4]) && (arr[4] == arr[6]))) {
+    for (var i = 0; i < 8; i++) {
+        if (arr[win[i][0]] == arr[win[i][1]] && arr[win[i][1]] == arr[win[i][2]]) {
+            tern.innerText = "Player " + who + " Won!";
+            tern.style.animation = "size 1s linear infinite";
+            document.getElementById("b" + win[i][0]).style.backgroundColor = "rgba(41, 250, 76, 0.3)";
+            document.getElementById("b" + win[i][1]).style.backgroundColor = "rgba(41, 250, 76, 0.3)";
+            document.getElementById("b" + win[i][2]).style.backgroundColor = "rgba(41, 250, 76, 0.3)";
+            won = 1;
+            if (who == "x") {
+                xs++;
+                up.style.animation = "boxsize 1s linear infinite";
+            }
+            else if (who == "0") {
+                os++;
+                down.style.animation = "boxsize 1s linear infinite";
+            }
+            xp.innerText = "'X' Player Score : " + xs;
+            op.innerText = "'O' Player Score : " + os;
 
-        tern.innerText = "Player " + who + " Won!";
-        tern.style.animation = "size 1s linear infinite";
-        
-        won = 1;
-        if (who == "x") {
-            xs++;
-            up.style.animation = "boxsize 1s linear infinite";
+            if (xs > os) {
+                up.style.backgroundColor = "lime";
+                down.style.backgroundColor = "#ed1c24";
+            }
+            else if (xs < os) {
+                up.style.backgroundColor = "#ed1c24";
+                down.style.backgroundColor = "lime";
+            }
+            else if (os == xs) {
+                up.style.backgroundColor = "rgb(156, 218, 253)";
+                down.style.backgroundColor = "rgb(156, 218, 253)";
+            }
+            break;
         }
-        else if (who == "0") {
-            os++;
-            down.style.animation = "boxsize 1s linear infinite";
-        }
-        xp.innerText = "'X' Player Score : " + xs;
-        op.innerText = "'O' Player Score : " + os;
-
-        if (xs > os) {
-            up.style.backgroundColor = "#86dc3d";
-            down.style.backgroundColor = "#ed1c24";
-        }
-        else if (xs < os) {
-            up.style.backgroundColor = "#ed1c24";
-            down.style.backgroundColor = "#86dc3d";
-        }
-        else if(os==xs){
-            up.style.backgroundColor = "rgba(170, 170, 170, 0.274)";
-            down.style.backgroundColor = "rgba(170, 170, 170, 0.274)";
-        }
+        isdrow();
     }
-    else isdrow();
 }
 
 // Puting Values
@@ -88,14 +93,15 @@ restart.addEventListener("click", finish);
 function finish() {
     for (var i = 0; i < 9; i++) {
         document.getElementById("b" + i).innerText = "";
+        document.getElementById("b" + i).style.backgroundColor = "rgba(170, 170, 170, 0.274)";
         arr[i] = i + 2;
     }
     tern.innerText = "Tern For X";
     tern.style.animation = "";
-    up.style.animation="";
-    up.style.animation="";
-    down.style.animation="";
-    down.style.animation="";
+    up.style.animation = "";
+    up.style.animation = "";
+    down.style.animation = "";
+    down.style.animation = "";
     flag = 1;
     won = 0;
 }
